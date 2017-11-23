@@ -18,5 +18,7 @@ func form2Controller(w http.ResponseWriter, r *http.Request) {
     
     fmt.Fprintf(w, "firstName = %s \n", r.Form.Get("firstName") )
     fmt.Fprintf(w, "lastName = %s \n", r.Form.Get("lastName") )
+
+    fmt.Fprintf(w, "foo = %s \n", r.Form.Get("foo") )
     
 }
