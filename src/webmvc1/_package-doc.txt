@@ -1,0 +1,3 @@
+
+Web MVC sample
+with controllers only, no template
