@@ -64,6 +64,7 @@ func main() {
 	http.HandleFunc("/hi", hiController)
 	http.HandleFunc("/form1", form1Controller)
 	http.HandleFunc("/form2", form2Controller)
+	http.HandleFunc("/color", colorController)
 
 	log.Fatal(http.ListenAndServe(":80", nil))
 

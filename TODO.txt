@@ -1,0 +1,9 @@
+
+
+Chargement de paramètres à partir d'un fichier ".toml"
+
+https://en.wikipedia.org/wiki/TOML 
+
+
+
+
