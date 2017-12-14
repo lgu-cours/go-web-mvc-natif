@@ -16,8 +16,14 @@ func form2Controller(w http.ResponseWriter, r *http.Request) {
     // r.Form contient les valeurs POST et les valeurs de QUERY String de l'URL 
     printFormValues(w,r);
     
-    fmt.Fprintf(w, "firstName = %s \n", r.Form.Get("firstName") )
-    fmt.Fprintf(w, "lastName = %s \n", r.Form.Get("lastName") )
+    firstName := r.Form.Get("firstName")
+    lastName  := r.Form.Get("lastName")
+
+    values := r.Form 
+    fmt.Fprintf(w, "values = %s\n", values)
+       
+    fmt.Fprintf(w, "firstName = %s \n", firstName )
+    fmt.Fprintf(w, "lastName = %s \n", lastName )
 
     fmt.Fprintf(w, "foo = %s \n", r.Form.Get("foo") )
     

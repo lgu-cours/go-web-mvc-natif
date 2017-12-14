@@ -7,9 +7,9 @@
 
 <body>
 <h1>form1.html file</h1>
-<h2>Form submit with GET method</h2>
+<h2>Form submit with GET or POST method</h2>
 
-<form action="/form1" method="get">
+<form action="/form1?x=1" method="get">
 <table>
 <tr><td>First name : </td> <td><input type="text" name="firstName" placeholder="First name"></td></tr>
 <tr><td>Last name : </td> <td><input type="text" name="lastName" placeholder="Last name"></td></tr>
@@ -17,7 +17,18 @@
 <tr><td>foo : </td> <td><input type="text" name="foo" ></td></tr>
 
 </table>
-<button type="submit">Submit</button>
+<button type="submit">Submit GET</button>
+</form>
+<br/><br/>
+<form action="/form1?x=2" method="post">
+<table>
+<tr><td>First name : </td> <td><input type="text" name="firstName" placeholder="First name"></td></tr>
+<tr><td>Last name : </td> <td><input type="text" name="lastName" placeholder="Last name"></td></tr>
+<tr><td>foo : </td> <td><input type="text" name="foo" ></td></tr>
+<tr><td>foo : </td> <td><input type="text" name="foo" ></td></tr>
+
+</table>
+<button type="submit">Submit POST</button>
 </form>
 
 </body>
