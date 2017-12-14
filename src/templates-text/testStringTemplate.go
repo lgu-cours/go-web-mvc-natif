@@ -1,13 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"text/template"
 )
 
-func test1() {
+func testStringTemplate() {
 	
+	fmt.Println("Test with a template defined in a string")
     //define the data (model)
 	student := Student{"Bart Simpson"}
 	

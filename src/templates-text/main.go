@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	
 	fmt.Println("=====")
-	test1()
+	testStringTemplate()
 	fmt.Println("=====")
 	testOneFile()
 	fmt.Println("=====")
