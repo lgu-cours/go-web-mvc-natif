@@ -53,14 +53,16 @@ func dbCreateBucket(bucketName string) {
 
 func dbPut(bucketName string, key string, value string ) {
 	dbCheckIfOpen()
+	
 	err := db.Update(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket( []byte(bucketName) )
 		if ( bucket == nil ) {
 			panic("Bucket '" + bucketName + "' not found")
 		}
-	    bucket.Put([]byte(key), []byte(value))
+	    bucket.Put([]byte(key), []byte(value))                        
 	    return nil
 	});	
+	
 	if err != nil {
 		panic("Cannot put key '" + key + "' in bucket '" + bucketName + "'")
 	}
@@ -68,18 +70,38 @@ func dbPut(bucketName string, key string, value string ) {
 
 func dbGet(bucketName string, key string ) string {
 	dbCheckIfOpen()
+	
 	var value string
 	err := db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket( []byte(bucketName) )
 		if ( bucket == nil ) {
 			panic("Bucket '" + bucketName + "' not found")
 		}
-	    value = string(bucket.Get([]byte(key))) // void string if value == nil (not found) 
+	    value = string(bucket.Get([]byte(key))) // void string if value == nil (not found)      
 	    return nil
 	});	
+	
+	
 	if err != nil {
 		panic("Cannot get key '" + key + "' from bucket '" + bucketName + "'")
 	}
 	return value
+}
+
+func dbDelete(bucketName string, key string ) {
+	dbCheckIfOpen()
+	
+	err := db.Update(func(tx *bolt.Tx) error {
+		bucket := tx.Bucket( []byte(bucketName) )
+		if ( bucket == nil ) {
+			panic("Bucket '" + bucketName + "' not found")
+		}
+	    bucket.Delete([]byte(key))                                                     
+	    return nil
+	});	
+	
+	if err != nil {
+		panic("Cannot delete key '" + key + "' in bucket '" + bucketName + "'")
+	}
 }
 
