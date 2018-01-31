@@ -10,21 +10,34 @@ import (
 func main() {
 	
 	fmt.Println("Test : ")
-	fmt.Println(" - template is defined in a string")
-    fmt.Println(" - data is defined in a simple string ")
-
-	//define the data (model)
-	data := "Bart Simpson"
-	fmt.Println("Value is : " + data )
+	
+	data := Person{
+        Name:   "Foo",
+        Emails: []string{"foo@myhost.org", "foo@gmail.com"},
+    }
 	
 	//create a new template with a name
 	tmpl := template.New("mytemplate")
 	
 	// the template content 
-	content := "First test : \n" +
-			 "Hello {{.}} ! \n\n" +
-			 "Add 1 + 2  {{add 1 2}} ! \n\n" 
-	
+	content := `Person : {{.Name}}  e-mails :
+{{range $e := .Emails}} - email {{$e}} 
+{{end}}
+`
+/*
+	content := `Person : {{.Name}}  e-mails :
+{{range $i, $e := .Emails}} - email {{index $i}} {{.}} 
+{{end}}
+`
+*/
+
+/*
+	content := `Person : {{.Name}}  e-mails :
+{{range .Emails}} - email : {{.}} 
+{{end}}
+`
+*/
+
 	//parse some content and generate a template
     tmpl, err := tmpl.Parse(content)
     if err != nil {
