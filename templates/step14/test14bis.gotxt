@@ -1,0 +1,3 @@
+From template file 'test14bis.gotxt' :
+Hello student {{.Name}}!
+

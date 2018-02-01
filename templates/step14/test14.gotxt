@@ -1,0 +1,4 @@
+From template file 'test14.gotxt' :
+Hello student {{.Name}} !
+Age = {{.Age}}
+

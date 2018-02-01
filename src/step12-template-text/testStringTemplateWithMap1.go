@@ -1,28 +1,26 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"text/template"
 )
 
-func main() {
+func testMap1() {
 	
-	fmt.Println("Test : ")
-	fmt.Println(" - template is defined in a string")
-    fmt.Println(" - data is defined in a map ")
-
 	//define the data (model)
-	data := map[string]string{"a": "AA",  "b": "BB",  "c": "CC",  "d": "DD"}
-	fmt.Println("Value is a map " )
+	data := map[string]string{"v1": "One",  "v2": "Two",  "v3": "Three",  "v4": "Four"}
 	
 	//create a new template with a name
 	tmpl := template.New("mytemplate")
 	
 	// the template content 
 	//content := "Test with a single point : Hello {{.}} ! \n\n" // print the entire map
-	content := "Test a = {{.a}}, b = {{.b}} \n\n" // print the entire map
+	content := "Some map values : v1 = '{{.v1}}' / v2 = '{{.v2}}' \n"
+		
+	// the template content 
+	//content := "Test with a single point : Hello {{.}} ! \n\n" // print the entire map
+	//content := "Test a = {{.a}}, b = {{.b}} \n\n" // print the entire map
 	
 	//parse some content and generate a template
     tmpl, err := tmpl.Parse(content)
