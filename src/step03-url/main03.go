@@ -17,15 +17,18 @@ import (
 	}
 
 	func urlHandler(w http.ResponseWriter, r *http.Request) {
+		url := r.URL 
 		fmt.Fprintf(w, "URL fields : \n")
 		fmt.Fprintf(w, " . URL.Path : %s\n", r.URL.Path)
 		fmt.Fprintf(w, " . URL.Scheme : %s\n", r.URL.Scheme)
 		fmt.Fprintf(w, " . URL.Host : %s\n", r.URL.Host)
+		
 		fmt.Fprintf(w, "URL functions : \n")
 		fmt.Fprintf(w, " . URL.Hostname() : %s\n", r.URL.Hostname())
 		fmt.Fprintf(w, " . URL.Port() : %s\n", r.URL.Port())
 		fmt.Fprintf(w, " . URL.RequestURI() : %s\n", r.URL.RequestURI())
 		fmt.Fprintf(w, " . URL.Query() : %s\n", r.URL.Query())
+		fmt.Fprintf(w, " . URL.EscapedPath() : %s\n", url.EscapedPath() )
 	}
 
 
