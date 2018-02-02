@@ -33,7 +33,7 @@ func doGet(w http.ResponseWriter, r *http.Request) {
 func doPost(w http.ResponseWriter, r *http.Request) {
 	// get parameters to init form data
     r.ParseForm() // Parse url parameters passed, then parse the response packet for the POST body (request body)
-    name := r.Form.Get("name")
+    name   := r.Form.Get("name")
     color  := r.Form.Get("color")
 	data := FormData{name, color}
 	
