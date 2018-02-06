@@ -12,6 +12,9 @@
 <h2>First name : {{.FirstName}} </h2>
 <h2>Last name : {{.LastName}} </h2>
 {{ if .Manager }} Manager {{else}} Not manager {{end}}
+{{ if eq .Rank 1 }} Rank is 1 {{else}} Rank is not 1 {{end}}
+{{ if gt .Rank 1 }} Rank is > 1 {{else}} Rank is not > 1 {{end}}
+{{ if or .Manager .Manager }} Manager {{else}} Not manager {{end}}
 </body>
 
 </html>
