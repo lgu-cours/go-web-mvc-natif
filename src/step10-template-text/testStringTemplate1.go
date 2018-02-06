@@ -23,7 +23,9 @@ func main() {
 	// the template content 
 	content := "First test : \n" +
 			 "Hello {{.}} ! \n\n" +
-			 "Add 1 + 2  {{add 1 2}} ! \n\n" 
+			 // "Add 1 + 2  {{ 1 + 2}} ! \n\n" +
+			 "{{ $a := 1 }} a = {{ $a}} \n\n" 
+			 
 	
 	//parse some content and generate a template
     tmpl, err := tmpl.Parse(content)
