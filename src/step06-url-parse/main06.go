@@ -36,9 +36,11 @@ func paramHandler(w http.ResponseWriter, r *http.Request) {
     r.ParseForm() // Parse url parameters passed, then parse the POST body (request body)
     firstname := r.Form.Get("firstname")
     lastname  := r.Form.Get("lastname")
+    nonExistentParam  := r.Form.Get("nonExistentParam") // returns "" (void string)
 
     log.Println("Param 'firstname' = '" + firstname + "'")
     log.Println("Param 'lastname'  = '" + lastname  + "'")
+    log.Println("Param 'nonExistentParam'  = '" + nonExistentParam  + "'") // void
 
     s := fmt.Sprintf("<h2>'firstname' value is '%s'</h2> <h2>'lastname' value is '%s'</h2>", firstname, lastname)
     genHtmlPage(w, s)
