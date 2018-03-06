@@ -41,4 +41,12 @@ func main() {
 	fmt.Println(" 'FR' in countries : " + dbGet("countries", "FR") )
 	fmt.Println(" 'FR' in foo       : " + dbGet("foo", "FR") )
 	
+	dbPut("countries", "ES", "Spain")
+	dbPut("countries", "BE", "Belgium")
+	fmt.Println("Bolt - get all from 'countries' bucket... ")
+	countries := dbGetAll("countries")
+	for i, country := range countries {
+		fmt.Printf(" %d : %+v \n", i, country )
+	}
+	
 }

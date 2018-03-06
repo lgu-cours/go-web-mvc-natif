@@ -88,6 +88,31 @@ func dbGet(bucketName string, key string ) string {
 	return value
 }
 
+// Get all the values stored in the given bucket name
+func dbGetAll(bucketName string) []string {
+	dbCheckIfOpen()
+	
+	values := make([]string,0)
+	
+	err := db.View(func(tx *bolt.Tx) error {
+		bucket := tx.Bucket( []byte(bucketName) )
+		if ( bucket == nil ) {
+			panic("Bucket '" + bucketName + "' not found")
+		}
+		bucket.ForEach(func(k, v []byte) error {
+	        //fmt.Println(string(k), string(v))
+		    values = append(values, string(v))
+	        return nil
+		})
+		return nil
+	});
+	
+	if err != nil {
+		panic("Cannot get all items from bucket '" + bucketName + "'")
+	}
+	return values
+}
+
 func dbDelete(bucketName string, key string ) {
 	dbCheckIfOpen()
 	
