@@ -22,4 +22,8 @@ func main() {
 	fmt.Printf("JSON --> Unmarshal : %s \n", b)
 	fmt.Printf("JSON --> Unmarshal : %+v \n", employee2)
 	fmt.Printf("JSON --> Unmarshal : %v \n", employee2)
+	
+	fmt.Println("byte array to string...");
+	s := string(b[:])
+	fmt.Printf(" s = %s \n", s)
 }
