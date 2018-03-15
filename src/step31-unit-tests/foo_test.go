@@ -1,5 +1,4 @@
-package conv_test // _test by convention
-// package foo // it works 
+package foo_test 
 
 import (
 	"testing"
@@ -9,6 +8,7 @@ import (
 )
 
 func Test1(t * testing.T ) {
+	
 	    fmt.Println(t.Name()) // prints function name
 	    
 	    int1 := 123 
@@ -25,6 +25,7 @@ func Test1(t * testing.T ) {
 }
 
 func Test2(t * testing.T ) {
+	
 	    fmt.Println(t.Name()) // prints function name
 	    t.Fail()  // test failed without message 
 }
@@ -34,15 +35,21 @@ func Test3(t * testing.T ) {
 	    t.Error("My test error") // test failed with error message 
 }
 
-//func Test4() { // Error : "wrong signature for Test4, must be Test4(t * testing.T )"
-//	    fmt.Println("--- Test #4 ") // prints function name
-//	    t.Error("My test error") // test failed with error message 
-//}
-
 func Foo(t * testing.T ) { // ignored (not starting with "Test")
 	    fmt.Println(t.Name()) // prints function name
 }
 
-func TestFoo(t * testing.T ) { // processed
+func TestFoo(t * testing.T ) { 
+	
+	// processed
+	    fmt.Println(t.Name()) // prints function name
+}
+
+func Test(t * testing.T ) {  
+	    fmt.Println(t.Name()) // prints function name
+	    fmt.Println("Yeah") // prints function name
+}
+
+func TestX(t * testing.T ) { 
 	    fmt.Println(t.Name()) // prints function name
 }
