@@ -1,9 +1,16 @@
 
+* JSON  (std Go)
+  Struct --> JSON
+  JSON --> Struct
 
-Chargement de paramètres à partir d'un fichier ".toml"
-
-https://en.wikipedia.org/wiki/TOML 
-
+* Arguments 
+  Package "flag"  (std Go)
 
 
+* Chargement de paramètres à partir d'un fichier ".toml"
+  TOML : https://en.wikipedia.org/wiki/TOML 
+  Lib  : https://github.com/BurntSushi/toml
+
+* Logging 
+  https://github.com/sirupsen/logrus
 
