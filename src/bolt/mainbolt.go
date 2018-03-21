@@ -15,7 +15,7 @@ func main() {
 	fmt.Println("Bolt db path = " + dbPath() )
 	
 	fmt.Println("Bolt - creating bucket 'countries'... ")
-	dbCreateBucket("countries");
+	dbCreateBucket("countries")
 
 	fmt.Println("Bolt - set countries ... ")
 	dbPut("countries", "FR", "France")
